@@ -249,7 +249,7 @@ cv2.destroyAllWindows()
 
 ### Author
 
-OwenCaleb(Wenbo Li)
+[OwenCaleb(Wenbo Li)](https://github.com/OwenCaleb?tab=repositories)
 
 ### Acknowledgements
 

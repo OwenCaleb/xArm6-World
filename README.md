@@ -9,7 +9,7 @@ xArm6-World is a simulation environment for reinforcement learning (RL) tasks, d
 
 <p align="center">
   <a href="https://github.com/OwenCaleb/xArm6-World.git/">
-    <img src="images/xArm6-World.png" alt="Logo" width="100" height="100">
+    <img src="images/xArm6-World.png" alt="Logo" width="200" height="200">
   </a>
 
 </p>
@@ -20,7 +20,7 @@ xArm6-World is a simulation environment for reinforcement learning (RL) tasks, d
 - [Usage](#Usage)
   - [Parameters](#Parameters)
 
-- [Description for xArm6-World Tasks](#Description for xArm6-World Tasks)
+- [Tasks](#Tasks)
 - [Features](#Features)
 - [Quickstart](#Quickstart)
 - [Author](#Author)
@@ -158,7 +158,7 @@ Below is a description of the parameters that can be configured when creating th
   - `'rgb_array'`: Renders the environment and returns the image as a NumPy array, useful for processing the images programmatically.
     - **Note**: Requires unsetting `LD_PRELOAD` with `unset LD_PRELOAD` for correct behavior.
 
-### Description for xArm6-World Tasks
+### Tasks
 
 `xArm6-World` provides a collection of tasks that simulate robotic manipulation using the xArm6 robot. These tasks are designed to challenge reinforcement learning (RL) algorithms and provide a realistic setting for testing and training robotic agents in various manipulation scenarios. Below are the available tasks in the `xArm6-World` environment:
 
@@ -182,7 +182,7 @@ The environment offers multiple camera modes to capture images from different pe
 
 <p align="center">
   <a href="https://github.com/OwenCaleb/xArm6-World.git/">
-    <img src="images/view.png" alt="Logo" height="100" width="auto">
+    <img src="images/view.png" alt="Logo" height="200" width="auto">
   </a>
 
 #### 2. **Complex Control Mode (Quaternion-based Control)**

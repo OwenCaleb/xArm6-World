@@ -191,10 +191,10 @@ Below is a description of the parameters that can be configured when creating th
 
 The environment offers multiple camera modes to capture images from different perspectives, enabling research on **multi-modal fusion** and **multi-view reinforcement learning**. These modes allow easy switching between various robot cameras (arm, remote, upview, and front) to study how different visual inputs affect the agent's performance.
 **Note:** The camera configuration parameters are unified with the RealSense D435i.
-<!-- <p align="center">
+<p align="center">
   <a href="https://github.com/OwenCaleb/xArm6-World.git/">
     <img src="images/view.png" alt="view" height="200" width="auto">
-  </a> -->
+  </a>
 
 #### 2. **Complex Control Mode (Quaternion-based Control)**
 

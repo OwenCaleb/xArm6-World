@@ -9,7 +9,7 @@ xArm6-World is a simulation environment for reinforcement learning (RL) tasks, d
 
 <p align="center">
   <a href="https://github.com/OwenCaleb/xArm6-World.git/">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/xArm6-World.png" alt="Logo" width="100" height="100">
   </a>
 
 </p>
@@ -182,7 +182,7 @@ The environment offers multiple camera modes to capture images from different pe
 
 <p align="center">
   <a href="https://github.com/OwenCaleb/xArm6-World.git/">
-    <img src="images/view.png" alt="Logo" width="400" height="80">
+    <img src="images/view.png" alt="Logo" height="100" width="auto">
   </a>
 
 #### 2. **Complex Control Mode (Quaternion-based Control)**

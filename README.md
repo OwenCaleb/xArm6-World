@@ -174,12 +174,23 @@ Below is a description of the parameters that can be configured when creating th
 
 - **Objective**: The agent must reach a specified target location with the end-effector of the robot. This task is often used to evaluate the basic manipulation skills of the robot, such as moving the arm to a particular point in space.
 
+#### 4. **Stack**
+
+- **Objective**: The agent must stack one object on top of another using the robot's end-effector. This task evaluates the robot's advanced manipulation skills, including precise control, object handling, and spatial awareness, to achieve a stable and accurate stacked configuration.
+
+|                                  |                                                |
+| :------------------------------: | :--------------------------------------------: |
+|         `xArm6Push-v0`          |                 `xArm6Lift-v0`                 |
+| ![xArm6Push-v0](images/push.png) |         ![xArm6Lift-v0](images/remote.png)         |
+|         `xArm6Reach-v0`          |             `xArm6Stack-v0`             |
+| ![xArm6Reach-v0](images/reach.png) | ![xArm6Stack-v0](images/stack.png) |
+
 ### Features
 
 #### 1. **Multiple Camera Modes for Multi-View Research**
 
 The environment offers multiple camera modes to capture images from different perspectives, enabling research on **multi-modal fusion** and **multi-view reinforcement learning**. These modes allow easy switching between various robot cameras (arm, remote, upview, and front) to study how different visual inputs affect the agent's performance.
-
+**Note:** The camera configuration parameters are unified with the RealSense D435i.
 <p align="center">
   <a href="https://github.com/OwenCaleb/xArm6-World.git/">
     <img src="images/view.png" alt="Logo" height="200" width="auto">
@@ -188,6 +199,9 @@ The environment offers multiple camera modes to capture images from different pe
 #### 2. **Complex Control Mode (Quaternion-based Control)**
 
 In addition to the simple control mode, the environment supports a **complex control mode** using **quaternions** for precise gripper control. This mode provides a 8D action space (pos, orientation and gripper width) for tasks that require complex rotations and accurate manipulation, while the simple mode uses a 4D action space.
+
+#### 3. **Customizable Tasks and Scenes**
+Users can customize task objectives and environmental scenes, such as different object shapes, sizes, weights, and varying task difficulties. This allows researchers to easily adjust the training environment based on specific needs for experimentation and testing.
 
 ### Quickstart
 

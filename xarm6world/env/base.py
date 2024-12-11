@@ -206,6 +206,7 @@ class Base(robot_env.RobotEnv):
 		self._sample_goal()
 		for _ in range(100):
 			self.sim.step()
+
 		# mocap_name = 'robot0:mocap2'  # mocap body 名称
 		# mocap_index = self.sim.model.body_name2id(mocap_name)  # 获取 mocap body 的索引
 		# mocap_xpos = self.sim.data.body_xpos[mocap_index]  # 获取 mocap body 的位置 (x, y, z)

@@ -22,6 +22,12 @@ XARM6WORLD_TASKS = {
         episode_length=50,
         description='Push a cube to a target location'
     ),
+    'stack': dict(
+        env='xArm6WorldStack-v0',
+        action_space='xyzw',
+        episode_length=50,
+        description='Stack one cube on top of another to achieve a stable configuration.'
+    ),
 }
 
 def format_task_name(task_name):

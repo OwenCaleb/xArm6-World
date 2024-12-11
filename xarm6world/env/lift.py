@@ -15,42 +15,29 @@ class Lift(Base):
 		return self.obj[2] >= self.z_target
 
 	def get_reward(self):
-		# 待优化
-		if self.control_mode == 'simple':
-			reach_dist = np.linalg.norm(self.obj - self.eef)
-			reach_dist_xy = np.linalg.norm(self.obj[:-1] - self.eef[:-1])
-		elif self.control_mode == 'complex':
-			reach_dist = np.linalg.norm(self.obj - self.eef[:3])
-			reach_dist_xy = np.linalg.norm(self.obj[:-1] - self.eef[:2])
-		
+		reach_dist = np.linalg.norm(self.obj - self.eef)
+		reach_dist_xy = np.linalg.norm(self.obj[:-1] - self.eef[:-1])
 		pick_completed = self.obj[2] >= (self.z_target - 0.01)
 		obj_dropped = (self.obj[2] < (self._init_z + 0.005)) and (reach_dist > 0.02)
 
 		# Reach
 		if reach_dist < 0.05:
-			# 其中 -reach_dist 奖励夹爪接近物体的程度，并给 _action[-1] 的正值（即动作的 Z 轴分量）提供一点奖励（正数除以 50），表示鼓励积极向上移动的动作。
 			reach_reward = -reach_dist + max(self._action[-1], 0)/50
-		# 则表示在水平位置夹爪接近物体。
 		elif reach_dist_xy < 0.05:
 			reach_reward = -reach_dist
 		else:
-			# 如果夹爪没有接近物体的情况，则计算 z_bonus，即夹爪和物体在 Z 轴上的距离。
-			# reach_reward 为 -reach_dist - 2*z_bonus，对 Z 轴距离 z_bonus 加大惩罚（乘以 2），鼓励接近物体。
-			z_bonus = np.linalg.norm(np.linalg.norm(self.obj[-1] - self.eef[2]))
+			z_bonus = np.linalg.norm(np.linalg.norm(self.obj[-1] - self.eef[-1]))
 			reach_reward = -reach_dist - 2*z_bonus
 
 		# Pick
-		# 这一条件组合确保物体已成功被抬升到目标高度，且未掉落。
 		if pick_completed and not obj_dropped:
 			pick_reward = self.z_target
-		# 如果夹爪接近物体（reach_dist < 0.1）且物体的 Z 坐标高于初始高度，则 pick_reward 为 self.z_target 和物体当前高度 self.obj[2] 中较小的值。
-		# 夹爪和物体接近，并且物体已经被部分抬升，但未达到目标高度。
 		elif (reach_dist < 0.1) and (self.obj[2] > (self._init_z + 0.005)):
 			pick_reward = min(self.z_target, self.obj[2])
 		else:
 			pick_reward = 0
 
-		return 10*(reach_reward/100 + pick_reward)
+		return reach_reward/10 + pick_reward*10
 
 	def _get_obs(self):
 		eef_velp = self.sim.data.get_site_xvelp('grasp') * self.dt

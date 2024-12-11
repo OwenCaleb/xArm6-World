@@ -19,20 +19,6 @@ class Push(Base):
 		return -(dist + 0.15*penalty)*10
 	
 	def _get_obs(self):
-		# obs = np.concatenate([
-		# 	eef, eef_velp, goal, obj, obj_rot, obj_velp, obj_velr,
-		# 	eef-goal, eef-obj, obj-goal,
-		# 	np.array([
-		# 		np.linalg.norm(eef-goal), np.linalg.norm(eef-obj),
-		# 		np.linalg.norm(obj-goal), gripper_angle
-		# 	])
-		# ], axis=0)
-		# return dict(
-		# 	observation=obs,
-		# 	state=eef,
-		# 	achieved_goal=eef,
-		# 	desired_goal=goal
-		# )
 		eef_velp = self.sim.data.get_site_xvelp('grasp') * self.dt
 		gripper_angle = self.sim.data.get_joint_qpos('right_outer_knuckle_joint')
 		eef = np.concatenate([
